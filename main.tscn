@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+bg_color = Color(0.075, 0.09, 0.13, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.19, 0.23, 0.32, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+content_margin_left = 36.0
+content_margin_top = 32.0
+content_margin_right = 36.0
+content_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleButton"]
+bg_color = Color(0.39, 0.64, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 18.0
+content_margin_top = 14.0
+content_margin_right = 18.0
+content_margin_bottom = 14.0
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.035, 0.06, 1)
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Center" type="CenterContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin/Center"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Content" type="VBoxContainer" parent="Margin/Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Eyebrow" type="Label" parent="Margin/Center/Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42, 0.67, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "PROTOTIR GODOT EXAMPLE"
+
+[node name="Title" type="Label" parent="Margin/Center/Panel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "SDK capability playground"
+autowrap_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Margin/Center/Panel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.84, 1)
+theme_override_font_sizes/font_size = 15
+text = "SCORE"
+
+[node name="Score" type="Label" parent="Margin/Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="AddPoints" type="Button" parent="Margin/Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.02, 0.06, 0.12, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButton")
+theme_override_styles/hover = SubResource("StyleButton")
+theme_override_styles/pressed = SubResource("StyleButton")
+text = "Add 10 points"
+
+[node name="GenerateQuest" type="Button" parent="Margin/Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Generate a quest hook"
+
+[node name="Status" type="Label" parent="Margin/Center/Panel/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.77, 0.86, 1)
+theme_override_font_sizes/font_size = 16
+text = "Starting…"
+autowrap_mode = 2
+
+[connection signal="pressed" from="Margin/Center/Panel/Content/AddPoints" to="." method="_on_add_points_pressed"]
+[connection signal="pressed" from="Margin/Center/Panel/Content/GenerateQuest" to="." method="_on_generate_quest_pressed"]

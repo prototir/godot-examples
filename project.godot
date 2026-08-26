@@ -1,0 +1,31 @@
+; Engine configuration file.
+; Edit this file through Godot's Project Settings UI whenever possible.
+
+config_version=5
+
+[application]
+
+config/name="Prototir Godot Example"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.3")
+
+[autoload]
+
+Prototir="*res://addons/prototir/prototir.gd"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/prototir/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

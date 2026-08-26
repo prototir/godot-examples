@@ -1,0 +1,17 @@
+{
+  "name": "Godot SDK example",
+  "description": "A small Godot scene demonstrating the Prototir SDK.",
+  "type": "game",
+  "entry": "index.html",
+  "thumbnail": "auto",
+  "devices": ["desktop", "mobile"],
+  "orientation": "any",
+  "runtime": {
+    "engine": "godot",
+    "engineVersion": "4.3",
+    "profile": "standard"
+  },
+  "modules": [],
+  "permissions": [],
+  "ai": { "mode": "managed" }
+}
